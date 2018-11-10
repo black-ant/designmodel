@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.design.dsmodel.facade.controller;
+package com.design.dsmodel.strategy.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.design.dsmodel.facade.service.Computor;
+import com.design.dsmodel.strategy.service.StrategyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,23 +16,20 @@ import org.springframework.web.bind.annotation.RestController;
  * @author gang
  */
 @RestController
-public class EasyController {
+public class StrategyController {
 
     @Autowired
-    Computor cpmputor;
+    StrategyService strategyService;
 
-    @RequestMapping("/facadeup")
-    public JSONObject facadeOneComUp() {
+    @RequestMapping("/strategy")
+    public JSONObject seniorStatus() {
         JSONObject root = new JSONObject();
-        cpmputor.startup();
+
+        strategyService.editMath("sum", 5, 9);
+        strategyService.editMath("mutiply", 5, 9);
+        strategyService.editMath("divide", 5, 9);
+        strategyService.editMath("substract", 5, 9);
+
         return root;
     }
-
-    @RequestMapping("/facadedown")
-    public JSONObject facadeOneComDown() {
-        JSONObject root = new JSONObject();
-        cpmputor.shutdown();
-        return root;
-    }
-
 }
