@@ -17,6 +17,12 @@ public class EasyService {
 abstract class User {
 
     protected String name;
+    protected String type;
+
+    public User(String name, String type) {
+        this.name = name;
+        this.type = type;
+    }
 
     public abstract void askMediator();
 
@@ -24,6 +30,10 @@ abstract class User {
 }
 
 class BuyUser extends User {
+
+    public BuyUser(String name, String type) {
+        super(name, type);
+    }
 
     @Override
     public void askMediator() {
@@ -37,6 +47,10 @@ class BuyUser extends User {
 }
 
 class SellUser extends User {
+
+    public SellUser(String name, String type) {
+        super(name, type);
+    }
 
     @Override
     public void askMediator() {
@@ -54,6 +68,7 @@ class Mediator {
     private BuyUser buser;
     private SellUser suser;
 
-
-public void 
+    public void ask(User user) {
+        
+    }
 }
